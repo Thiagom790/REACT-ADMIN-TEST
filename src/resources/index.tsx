@@ -2,12 +2,14 @@ import { Resource } from "react-admin";
 import { Roles } from "../models/Analysts";
 import { auditResourceProps } from "./AuditResources";
 import { cardResourceProps } from "./CardResources";
+import { sheetsResourceProps } from "./SheetsResources";
 import { userResourceProps } from "./UserResources";
 
 const resourcesProps = [
   auditResourceProps,
   cardResourceProps,
   userResourceProps,
+  sheetsResourceProps,
 ];
 
 export function Resources(permissions: Roles[]) {

@@ -1,13 +1,13 @@
 import jsonServerProvider from "ra-data-json-server";
-import { fetchUtils } from "react-admin";
+import { DataProvider, fetchUtils } from "react-admin";
 import { serverUrl } from "./serverUrl";
 
 const provider = jsonServerProvider(serverUrl);
 const httpClient = fetchUtils.fetchJson;
 
-export const extendedProvider = {
+export const extendedProvider: DataProvider = {
   ...provider,
-  create: async (resource: string, params: any): Promise<any> => {
+  create: async (resource, params) => {
     const url = `${serverUrl}/${resource}`;
 
     const response = await httpClient(url, {
@@ -19,7 +19,7 @@ export const extendedProvider = {
 
     return { data };
   },
-  update: async (resource: string, params: any): Promise<any> => {
+  update: async (resource, params) => {
     if (resource === "cards") {
       const { data: card, previousData: previusCard } = params;
 

@@ -8,4 +8,5 @@ export interface ResourceProps {
   list?: (props: any) => JSX.Element;
   show?: (props: any) => JSX.Element;
   edit?: (props: any) => JSX.Element;
+  create?: (props: any) => JSX.Element;
 }
